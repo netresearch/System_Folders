@@ -16,7 +16,7 @@
 *     //Save the settings for next time
 *     $sf->saveToFile();
 *
-* PHP version 4
+* PHP version 5
 *
 * @category System
 * @package  System_Folders
@@ -70,16 +70,6 @@ class System_Folders_Cached extends System_Folders
 
 
     /**
-     * Create a new instance
-     */
-    function System_Folders_Cached()
-    {
-        parent::System_Folders();
-    }//function System_Folders_Cached()
-
-
-
-    /**
     * Loads the directories from an ini file.
     * If you don't specify the config file, it will be determined
     *  automatically.
@@ -98,7 +88,7 @@ class System_Folders_Cached extends System_Folders
             return true;
         }
         $conf = new Config();
-        $root =& $conf->parseConfig($strFile, 'inifile');
+        $root = $conf->parseConfig($strFile, 'inifile');
 
         if (PEAR::isError($root)) {
             return $root;
@@ -138,7 +128,7 @@ class System_Folders_Cached extends System_Folders
     */
     function saveToFile($strFile = null, $bSaveAllSettings = true)
     {
-        $conf  =& new Config_Container('section', 'paths');
+        $conf = new Config_Container('section', 'paths');
 
         if ($bSaveAllSettings) {
             foreach ($this->arSettings as $strSetting) {

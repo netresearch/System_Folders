@@ -3,7 +3,7 @@
 * Provides the locations of several system and user directories
 * independent of the operating system used.
 *
-* Simpe example:
+* Simple example:
 *     require_once 'System/Folders.php';
 *     $sf = new System_Folders();
 *     echo $sf->getHome();
@@ -11,7 +11,7 @@
 * If you want the folders to be cached (not re-calculated on every
 *  read), use System_Folders_Cached.
 *
-* PHP version 4
+* PHP version 5
 *
 * @category System
 * @package  System_Folders
@@ -222,11 +222,11 @@ class System_Folders
     /**
     * Constructor; initializes the system variable.
     */
-    function System_Folders()
+    function __construct()
     {
         $og = new OS_Guess();
         $this->sys = $og->getSysname();
-    }//function System_Folders()
+    }//function __construct()
 
 
 
@@ -277,16 +277,16 @@ class System_Folders
     * Loops through a list of given paths and checks
     * which of them are correct.
     *
-    * @param array  $arPaths   Array with paths to test
-    * @param string $strBase   Base directory that shall be prepended to all paths
-    * @param string $strSuffix String appended to the directory path
+    * @param string[] $arPaths   Array with paths to test
+    * @param string   $strBase   Base directory that shall be prepended to all paths
+    * @param string   $strSuffix String appended to the directory path
     *
     * @return string The directory that exists. NULL if none of them matched.
     *
     * @access protected
     * @static
     */
-    function tryPaths($arPaths, $strBase = '', $strSuffix = '')
+    function tryPaths(array $arPaths, $strBase = '', $strSuffix = '')
     {
         foreach ($arPaths as $strName) {
             $strTmp = $strBase . $strName . $strSuffix;
@@ -333,7 +333,7 @@ class System_Folders
     *
     * @param string $strType See $objCom for allowed values.
     *
-    * @return mixed False if no path could be obtained, string otherwise
+    * @return bool|string False if no path could be obtained, string otherwise
     *
     * @access protected
     */
