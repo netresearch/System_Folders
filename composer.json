@@ -16,7 +16,10 @@
         "./"
     ],
     "license": "LGPL",
-    "name": "pear/system_folders",
+    "name": "netresearch/system_folders",
+    "replace": {
+        "pear/system_folders": "self.version"
+    },
     "support": {
         "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=System_Folders",
         "source": "https://github.com/pear/System_Folders"
