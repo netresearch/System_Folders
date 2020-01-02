@@ -15,7 +15,7 @@
     "include-path": [
         "./"
     ],
-    "license": "LGPL",
+    "license": "LGPL-2.0-or-later",
     "name": "netresearch/system_folders",
     "replace": {
         "pear/system_folders": "*"
